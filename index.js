@@ -25,6 +25,17 @@ var guestbookListener = null;
 
 // Add Firebase project configuration object here
 // var firebaseConfig = {};
+const firebaseConfig = {
+    apiKey: "AIzaSyBHye2GyaYLikXnRwaHe6SusmP0UEy_dQg",
+      authDomain: "emmanueljet-fgtk.firebaseapp.com",
+        databaseURL: "https://emmanueljet-fgtk.firebaseio.com",
+          projectId: "emmanueljet-fgtk",
+            storageBucket: "emmanueljet-fgtk.appspot.com",
+              messagingSenderId: "152233201920",
+                appId: "1:152233201920:web:59699b963cfd4e92bce3e5",
+                  measurementId: "G-97NKW0VDBN"
+                  };
+}
 
 // firebase.initializeApp(firebaseConfig);
 
