@@ -9,14 +9,20 @@ import "firebase/firestore";
 
 import * as firebaseui from 'firebaseui';
 
+// Date & Time Function
+var date = new Date();
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var getMonth = months[date.getMonth()];
+var getDate = date.getDate();
+
 // Document elements
+document.getElementById("date").innerHTML = getMonth + ' ' + getDate;
 const startRsvpButton = document.getElementById('startRsvp');
 const guestbookContainer = document.getElementById('guestbook-container');
-
 const form = document.getElementById('leave-message');
 const input = document.getElementById('message');
 const guestbook = document.getElementById('guestbook');
-const numberAttending = document.getElementById('number-attending');
+const appointmentNumber = document.getElementById('appointment-number');
 const rsvpYes = document.getElementById('rsvp-yes');
 const rsvpNo = document.getElementById('rsvp-no');
 
@@ -72,6 +78,7 @@ if (user){
   subscribeGuestbook();
   // Subscribe to the guestbook collection
   subscribeCurrentRSVP(user);
+  document.getElementById("profile").innerHTML = firebase.auth().currentUser.displayName + ' is signed in;
 }
 else{
   startRsvpButton.textContent = "RSVP";
@@ -82,6 +89,7 @@ else{
   unsubscribeGuestbook();
   // Unsubscribe from the guestbook collection
   unsubscribeCurrentRSVP();
+  document.getElementById("profile").innerHTML = "";
 
 }
 });
@@ -168,9 +176,9 @@ firebase.firestore()
 .collection('attendees')
 .where("attending", "==", true)
 .onSnapshot(snap => {
- const newAttendeeCount = snap.docs.length;
+ const newAppointmentCount = snap.docs.length;
 
- numberAttending.innerHTML = newAttendeeCount+' people going'; 
+ appointmentNumber.innerHTML = newAppointmentCount+' people want to meet JET'; 
 })
 
 function subscribeCurrentRSVP(user){
