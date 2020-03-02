@@ -1,4 +1,17 @@
 <head>
+  <meta name="author" content="Emmanuel Joseph (JET)"/>
+  <meta name="title" content="emmanueljet | fgtk">
+  <meta name="description" content="Meet Emmanuel Joseph(JET)">
+  <meta name="image" content="https://aekiti.com/assets/images/web/team/emmanuel_joseph_jet.png">
+
+  <!-- Google -->
+  <link itemprop="url" rel="canonical" href="https://emmanueljet-fgtk.web.app" />
+  <meta itemprop="name" content="emmanueljet | fgtk">
+  <meta itemprop="description" content="Meet Emmanuel Joseph(JET)">
+  <meta itemprop="image" content="https://aekiti.com/assets/images/web/team/emmanuel_joseph_jet.png">
+
+  <title>emmanueljet | fgtk</title>
+
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.css" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:300,400,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -6,18 +19,16 @@
 </head>
 
 <div id="app">
- 
-  <!-- <img src="https://firebasestorage.googleapis.com/v0/b/fir-images-a61c9.appspot.com/o/firestore.png?alt=media&token=56d039dc-4a6c-477b-a153-a4bb8234646f" /> -->
-  <!-- <img src="https://firebasestorage.googleapis.com/v0/b/fir-images-a61c9.appspot.com/o/hosting.png?alt=media&token=57c8adb6-08c4-43f7-9395-4c299896a36c" /> -->
-  <img src="https://firebasestorage.googleapis.com/v0/b/fir-images-a61c9.appspot.com/o/codelab.png?alt=media&token=f45f808c-ce40-4b34-944c-8d8fac00e13d" />
+ <img src="https://i.ibb.co/Z6bdLKF/jet.png" alt="Emmanuel Joseph(JET)" />
 
  <section id="event-details-container">
-      <h1>Firebase Meetup</h1>
+      <h1>Meet With J.E.T</h1>
 
-      <p><i class="material-icons">calendar_today</i> October 30</p>
-      <p><i class="material-icons">location_city</i> San Francisco</p>
+      <p><i class="material-icons">calendar_today</i> <span id="date"></span></p>
+      <p><i class="material-icons">location_city</i> Ado-Ekiti, Nigeria</p>
 
       <button id="startRsvp">RSVP</button>
+      <p id="profile"></p>
   </section>
 
   <hr>
@@ -25,19 +36,27 @@
   <section id="firebaseui-auth-container"></section>
 
   <section id="description-container">
-      <h2>What we'll be doing</h2>
-      <p>Join us for a day full of Firebase Workshops and Pizza!</p>
-
+      <h2>Who is J.E.T</h2>
+      <p>Emmanuel Joseph(JET) is a software and blockchain developer. The amazing thing about JET is the ability to mentor others in software or blockchain development field.</p>
+      <p>JET loves to use Laravel, Flutter, GCP, æternity technologies and loves the power of git.</p>
+      ≤p>
+         <b>See JET on:</b>
+         <ul>
+           <li><a href="https://emmanueljet.me" target="_blank">emmanueljet.me</a> or</li>
+           <li><a href="https://twitter.com/emmanuelJet_" target="_blank">twitter</a> or</li>
+           <li><a href="https://github.com/emmanueljet" target="_blank">github</a></li>
+         </ul>
       <br>
-      <p id="number-attending"></p>
+      <p id="appointment-number"></p>
   </section>
 
   <section id="guestbook-container">
-   <h2>Are you attending?</h2>
+   <h2>Do you want to meet JET?</h2>
    <button id="rsvp-yes">YES</button>
    <button id="rsvp-no">NO</button>
 
-   <h2>Discussion</h2>
+   <br>
+   <h2>Send JET a message</h2>
 
    <form id="leave-message">
      <label>Leave a message: </label>
