@@ -70,6 +70,8 @@ if (user){
 
   // Subscribe to the guestbook collection
   subscribeGuestbook();
+  // Subscribe to the guestbook collection
+  subscribeCurrentRSVP(user);
 }
 else{
   startRsvpButton.textContent = "RSVP";
@@ -78,6 +80,9 @@ else{
 
   // Unsubscribe from the guestbook collection
   unsubscribeGuestbook();
+  // Unsubscribe from the guestbook collection
+  unsubscribeCurrentRSVP();
+
 }
 });
 
@@ -136,3 +141,65 @@ function unsubscribeGuestbook(){
    guestbookListener = null;
  }
 };
+
+
+// Listen to RSVP responses
+rsvpYes.onclick = () => {
+ // Get a reference to the user's document in the attendees collection
+ const userDoc = firebase.firestore().collection('attendees').doc(firebase.auth().currentUser.uid);
+
+ // If they RSVP'd yes, save a document with attending: true
+ userDoc.set({
+   attending: true
+ }).catch(console.error)
+}
+rsvpNo.onclick = () => {
+ // Get a reference to the user's document in the attendees collection
+ const userDoc = firebase.firestore().collection('attendees').doc(firebase.auth().currentUser.uid);
+
+ // If they RSVP'd yes, save a document with attending: true
+ userDoc.set({
+   attending: false
+ }).catch(console.error)
+}
+
+// Listen for attendee list
+firebase.firestore()
+.collection('attendees')
+.where("attending", "==", true)
+.onSnapshot(snap => {
+ const newAttendeeCount = snap.docs.length;
+
+ numberAttending.innerHTML = newAttendeeCount+' people going'; 
+})
+
+function subscribeCurrentRSVP(user){
+ rsvpListener = firebase.firestore()
+ .collection('attendees')
+ .doc(user.uid)
+ .onSnapshot((doc) => {
+   if (doc && doc.data()){
+     const attendingResponse = doc.data().attending;
+
+     // Update css classes for buttons
+     if (attendingResponse){
+       rsvpYes.className="clicked";
+       rsvpNo.className="";
+     }
+     else{
+       rsvpYes.className="";
+       rsvpNo.className="clicked";
+     }
+   }
+ });
+}
+
+function unsubscribeCurrentRSVP(){
+ if (rsvpListener != null)
+ {
+   rsvpListener();
+   rsvpListener = null;
+ }
+ rsvpYes.className="";
+ rsvpNo.className="";
+}
