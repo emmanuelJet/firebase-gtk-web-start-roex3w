@@ -78,7 +78,7 @@ if (user){
   subscribeGuestbook();
   // Subscribe to the guestbook collection
   subscribeCurrentRSVP(user);
-  document.getElementById("profile").innerHTML = firebase.auth().currentUser.displayName + ' is signed in;
+  document.getElementById("profile").innerHTML = firebase.auth().currentUser.displayName + ' is signed in';
 }
 else{
   startRsvpButton.textContent = "RSVP";
